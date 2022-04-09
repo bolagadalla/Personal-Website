@@ -3,6 +3,7 @@ import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
 import emailjs from '@emailjs/browser'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 
 const emailJSCredentials = require("../../assets/auth/credentials.json")
@@ -68,6 +69,23 @@ const Contact = () => {
           </form>
         </div>
 
+      </div>
+      <div className='info-map'>
+        Bola Gadalla,
+        <br/>
+        United States, 
+        <br/>
+        New York, New York
+        <span>bolagadalla777@gmail.com</span>
+      </div>
+
+      <div className='map-wrap'>
+        <MapContainer center={[40.702677, -73.7889689]} zoom={13}>
+          <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/>
+          <Marker position={[40.702677, -73.7889689]}>
+            <Popup>This is my general location.</Popup>
+          </Marker>
+        </MapContainer>
       </div>
     </div>
     <Loader type='pacman'/>
